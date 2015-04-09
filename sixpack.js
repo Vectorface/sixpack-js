@@ -158,7 +158,11 @@
                     if (res.statusCode == 500) {
                         data = {status: "failed", response: body};
                     } else {
-                        data = JSON.parse(body);
+                        try {
+                            data = JSON.parse(body);
+                        } catch (e) {
+                            data = {status: "failed", response: body};
+                        }
                     }
                     if (!timed_out) {
                         clearTimeout(timeout_handle);
