@@ -1,7 +1,7 @@
 var sixpack = require('../../');
 
 //basic example
-var session = new sixpack.Session;
+var session = new sixpack.Session("button-user");
 session.participate("button", ["red", "blue"], function (err, resp) {
   if (err) return console.log(err);
   console.log(resp);
@@ -29,7 +29,7 @@ session.participate("default-kpi", ["opt1", "opt2"], function(err, resp) {
 //in this case the user for test 'button' would have gotten either the
 // red or blue option already, then perhaps you want to track the
 //conversion rate on 'add-to-cart' and 'bought-items'.
-var session = new sixpack.Session("button");
+var session = new sixpack.Session("button-user");
 session.convert("button", "added-to-cart", function(err, resp) {
     if (err) return console.log(err);
     console.log(resp);
