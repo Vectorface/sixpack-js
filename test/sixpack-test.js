@@ -62,7 +62,7 @@ describe("Sixpack", function () {
 
     it("should return ok for convert", function (done) {
         var sixpack = require('../');
-        var session = new sixpack.Session("mike");
+        var session = new sixpack.Session();
         session.participate("show-bieber", ["trolled", "not-trolled"], function(err, resp) {
             if (err) throw err;
             session.convert("show-bieber", function(err, resp) {
@@ -75,7 +75,7 @@ describe("Sixpack", function () {
 
     it("should return ok for multiple converts", function (done) {
         var sixpack = require('../');
-        var session = new sixpack.Session("mike");
+        var session = new sixpack.Session();
         session.participate("show-bieber", ["trolled", "not-trolled"], function(err, alt) {
             if (err) throw err;
             session.convert("show-bieber", function(err, resp) {
@@ -104,7 +104,6 @@ describe("Sixpack", function () {
         var sixpack = require('../');
         var session = new sixpack.Session("mike");
         session.convert("show-blieber", function(err, resp) {
-            // TODO should this be an err?
             if (err) throw err;
             expect(resp.status).to.equal("failed");
             done();
@@ -118,6 +117,19 @@ describe("Sixpack", function () {
             if (err) throw err;
             expect(resp.status).to.equal("ok");
             done();
+        });
+    });
+
+    it("should return ok for convert with new client and kpi", function (done) {
+        var sixpack = require('../');
+        var session = new sixpack.Session();
+        session.participate("show-bieber", ["trolled", "not-trolled"], function(err, resp) {
+            if (err) throw err;
+            session.convert("show-bieber", 'justin-disappeared', function(err, resp) {
+                if (err) throw err;
+                expect(resp.status).to.equal("ok");
+                done();
+            });
         });
     });
 

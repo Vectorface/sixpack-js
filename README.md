@@ -10,14 +10,10 @@ Include the "sixpack.js" script. The `sixpack` object will be added to your envi
 <script src="sixpack.js"></script>
 ```
 
-If you're using sixpack-client with node.js start by installing it:
-
-	$ npm install sixpack-client
-
-then require the "sixpack-client" module:
+then require the javascript file:
 
 ``` javascript
-var sixpack = require("sixpack-client");
+var sixpack = require("./sixpack.js");
 ```
 
 ## Usage
@@ -25,7 +21,7 @@ var sixpack = require("sixpack-client");
 Check out the examples in the `examples` directory for some quick examples for how to use the library. Here's a very basic example in node:
 
 ```js
-var sixpack = require('sixpack-client');
+var sixpack = require('./sixpack.js');
 
 var session = new sixpack.Session();
 session.participate("test-exp", ["alt-one", "alt-two"], function (err, res) {
@@ -39,13 +35,15 @@ session.participate("test-exp", ["alt-one", "alt-two"], function (err, res) {
 });
 ```
 
-When instantiating the session object you can pass optional params `client_id`, `base_url`, `ip_address`, `user_agent`
+When instantiating the session object you can pass optional params `client_id`, `base_url`, `ip_address`, `user_agent`, `timeout`
 
 ```js
-var sixpack = new sixpack.Session(12345, 'http://google.com/sixpack', '1.2.2.1', 'ChromeBot');
+var sixpack = new sixpack.Session(12345, 'http://google.com/sixpack', '1.2.2.1', 'ChromeBot', 2000);
 ```
 
 Client ID is a previously generated client id that you've previously stored. IP Address and User Agent are used for bot detection.
+
+This fork has the ability to 'convert' on multiple kpi values (key performance indicators), for example you may have a set of alternatives and you want to track multiple success actions, examples could be: 'clicked-deposit', 'clicked-withdrawal', 'completed-withdrawal', etc
 
 ## Forcing an Alternative
 

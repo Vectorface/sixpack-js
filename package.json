@@ -1,6 +1,6 @@
 {
   "name": "sixpack-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JS client for SeatGeek's Sixpack AB testing framework.",
   "main": "sixpack.js",
   "scripts": {
@@ -8,12 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/seatgeek/sixpack-js.git"
+    "url": "git://github.com/Vectorface/sixpack-js.git"
   },
-  "author": "SeatGeek",
+  "author": "SeatGeek, Evan Cameron <evan@vectorface.ca>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "745feb999648782a7bccbceb1daecfc83af210d5",
   "devDependencies": {
     "mocha": "~1.8.1",
     "chai": "~1.5.0"
